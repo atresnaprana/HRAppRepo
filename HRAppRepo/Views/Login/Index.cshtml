@@ -1,0 +1,8 @@
+﻿@model HRAppRepo.Models.LoginModel
+
+<form asp-action="Logins" method="post">
+    <input asp-for="Email" />
+    <input asp-for="Password" />
+
+    <input type="submit" value="Submit" class="btn btn-danger" />
+</form>

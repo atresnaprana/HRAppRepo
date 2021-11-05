@@ -1,6 +1,6 @@
 ﻿@model HRAppRepo.Models.SignUpModel
 
-<form asp-action="SignUp" method="post">
+<form asp-action="SignUp" method="post" id="formcreate">
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -32,3 +32,24 @@
     </div>
     @*<input type="submit" value="Submit" class="btn btn-danger" />*@
 </form>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script>
+
+        function allowOnlyNumber(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function alertfirst() {
+
+            if (confirm("Are you sure saving data?")) {
+                $('#formcreate').submit();
+            } else {
+                return false;
+            }
+
+        }
+    </script>
+}
